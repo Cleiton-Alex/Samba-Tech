@@ -15,7 +15,8 @@ public class Midias implements Serializable {
     private String url;
     private Long duracao;
     private Date dataUpload;
-    private Boolean delete;
+    private String deletadoMidias;
+
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
@@ -26,6 +27,7 @@ public class Midias implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
+
     @Column(name = "Nome", nullable = false, length = 512)
     public String getNome() {
         return nome;
@@ -34,6 +36,7 @@ public class Midias implements Serializable {
     public void setNome(String nome) {
         this.nome = nome;
     }
+
     @Column(name = "URL", length = 512)
     public String getUrl() {
         return url;
@@ -52,21 +55,23 @@ public class Midias implements Serializable {
         this.duracao = duracao;
     }
 
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "Data_de_Upload", nullable = false)
     public Date getDataUpload() {
-        return dataUpload;
+        return this.dataUpload;
     }
 
     public void setDataUpload(Date dataUpload) {
         this.dataUpload = dataUpload;
     }
-    @Column(name = "Deleted", nullable = false)
-    public Boolean getDelete() {
-        return delete;
+
+    @Column(name = "deleted", nullable = false)
+    public String getDeletadoMidias() {
+        return deletadoMidias;
     }
 
-    public void setDelete(Boolean delete) {
-        this.delete = delete;
+    public void setDeletadoMidias(String deletadoMidias) {
+        this.deletadoMidias = deletadoMidias;
     }
 }
 
