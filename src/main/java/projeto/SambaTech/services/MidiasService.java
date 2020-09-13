@@ -11,10 +11,10 @@ public interface MidiasService {
     /**
      * Buscar e retorna todas as Midias ou midias que nao foram Deletadas
      *
-     * @param deleted
+     * @param deletadoMidias
      * @return Optional<Midias>
      */
-    Optional<Midias> buscarPorMidiasNaoDeletadas(Boolean deleted);
+    Optional<Midias> buscarPorMidiasNaoDeletadas(String deletadoMidias);
 
 
     /**
