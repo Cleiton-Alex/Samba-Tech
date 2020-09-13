@@ -1,5 +1,9 @@
 package projeto.SambaTech.dtos;
-import java.util.Date;
+
+
+import org.hibernate.validator.constraints.Length;
+
+import javax.validation.constraints.NotEmpty;
 
 public class MidiasDto {
 
@@ -7,8 +11,8 @@ public class MidiasDto {
     private String nome;
     private String url;
     private Long duracao;
-    private Date dataUpload;
-    private Boolean delete;
+    private String dataUpload;
+    private String deletadoMidias;
 
 
     public Long getId() {
@@ -19,6 +23,8 @@ public class MidiasDto {
         this.id = id;
     }
 
+    @NotEmpty(message = "Nome não pode ser vazio. ")
+    @Length(min = 1, max = 512, message = "Nome deve conter entre 1 e 512 caracteres.")
     public String getNome() {
         return nome;
     }
@@ -43,20 +49,22 @@ public class MidiasDto {
         this.duracao = duracao;
     }
 
-    public Date getDataUpload() {
+    @NotEmpty(message = "Data de upload não pode ser vazia. ")
+    public String getDataUpload() {
         return dataUpload;
     }
 
-    public void setDataUpload(Date dataUpload) {
+    public void setDataUpload(String dataUpload) {
         this.dataUpload = dataUpload;
     }
 
-    public Boolean getDelete() {
-        return delete;
+    @NotEmpty(message = "Deleted midias não pode ser vazio.")
+    public String getDeletadoMidias() {
+        return deletadoMidias;
     }
 
-    public void setDelete(Boolean delete) {
-        this.delete = delete;
+    public void setDeletadoMidias(String deletadoMidias) {
+        this.deletadoMidias = deletadoMidias;
     }
 
     @Override
@@ -66,8 +74,8 @@ public class MidiasDto {
                 ", nome='" + nome + '\'' +
                 ", url='" + url + '\'' +
                 ", duracao=" + duracao +
-                ", dataUpload=" + dataUpload +
-                ", delete=" + delete +
+                ", dataUpload='" + dataUpload + '\'' +
+                ", deletadoMidias='" + deletadoMidias + '\'' +
                 '}';
     }
 }
