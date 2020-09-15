@@ -33,13 +33,14 @@ public class MidiasServiceImpl implements MidiasService {
     @Override
     public Optional<Midias> buscarPorMidiasID(Long id) {
         log.info("Buscar midia por ID {}", id);
-        Optional byId = Optional.ofNullable(this.midiasRepository.findById(id));
-        return byId;
+
+        return this.midiasRepository.findById(id);
     }
 
     @Override
     public void remover(Long id) {
-
+        log.info("Removendo midias por ID {}", id);
+        this.midiasRepository.deleteById(id);
     }
 
 
