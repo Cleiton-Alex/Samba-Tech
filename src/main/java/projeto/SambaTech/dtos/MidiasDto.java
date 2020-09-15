@@ -4,10 +4,11 @@ package projeto.SambaTech.dtos;
 import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.NotEmpty;
+import java.util.Optional;
 
 public class MidiasDto {
 
-    private Long id;
+    private Optional<Long> id = Optional.empty();
     private String nome;
     private String url;
     private Long duracao;
@@ -15,11 +16,11 @@ public class MidiasDto {
     private String deletadoMidias;
 
 
-    public Long getId() {
+    public Optional<Long> getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Optional<Long> id) {
         this.id = id;
     }
 

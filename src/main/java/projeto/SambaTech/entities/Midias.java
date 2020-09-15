@@ -73,5 +73,17 @@ public class Midias implements Serializable {
     public void setDeletadoMidias(String deletadoMidias) {
         this.deletadoMidias = deletadoMidias;
     }
+
+    @Override
+    public String toString() {
+        return "Midias{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", url='" + url + '\'' +
+                ", duracao=" + duracao +
+                ", dataUpload=" + dataUpload +
+                ", deletadoMidias='" + deletadoMidias + '\'' +
+                '}';
+    }
 }
 
